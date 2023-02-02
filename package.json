@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bump": "npm version patch -m \"Release v%s\" && git push && git push --tags",
+    "bump": "yarn version --patch && git push && git push --tags",
     "hotfix": "node scripts/tag-hotfix.js && git push && git push --tags"
   },
   "keywords": [],
