@@ -1,3 +1,5 @@
+// https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
+
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 const { spawnSync } = require('child_process')
@@ -40,15 +42,18 @@ const tagHotfix = async () => {
     const newTag = `${branchVersion}+${Number(hotfix || 0) + 1}`
 
     spawnSync('git', ['tag', newTag])
-    console.log(`old: ${latestTag}`)
-    console.log('\x1b[32m')
-    console.log(`new: ${newTag}`)
-    console.log("\x1b[0m")
+    // console.log(`old: ${latestTag}`)
+    // console.log('\x1b[32m')
+    // console.log(`new: ${newTag}`)
+    // console.log('\x1b[0m')
+
+    process.stdout.write(
+      'old: ' + latestTag + '\n' + '\x1b[32m' + 'new: ' + newTag + '\x1b[0m'
+    )
   } catch (err) {
-    console.log('\x1b[31m')
-    console.log('tag-hotfix error:')
-    console.error(err.message)
-    console.log("\x1b[0m")
+    process.stdout.write(
+      '\x1b[31m' + 'tag-hotfix error:\n' + err.message + '\x1b[0m' + '\n'
+    )
   }
 }
 
