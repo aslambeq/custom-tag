@@ -42,14 +42,7 @@ const tagHotfix = async () => {
     const newTag = `${branchVersion}+${Number(hotfix || 0) + 1}`
 
     spawnSync('git', ['tag', newTag])
-    // console.log(`old: ${latestTag}`)
-    // console.log('\x1b[32m')
-    // console.log(`new: ${newTag}`)
-    // console.log('\x1b[0m')
-
-    process.stdout.write(
-      'old: ' + latestTag + '\n' + '\x1b[32m' + 'new: ' + newTag + '\x1b[0m'
-    )
+    process.stdout.write('old: ' + latestTag + '\x1b[32m' + 'new: ' + newTag + '\x1b[0m' + '\n\n')
   } catch (err) {
     process.stdout.write(
       '\x1b[31m' + 'tag-hotfix error:\n' + err.message + '\x1b[0m' + '\n'
