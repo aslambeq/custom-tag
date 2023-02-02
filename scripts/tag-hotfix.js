@@ -40,8 +40,9 @@ const tagHotfix = async () => {
     const newTag = `${branchVersion}+${Number(hotfix || 0) + 1}`
 
     spawnSync('git', ['tag', newTag])
+    console.log(`old: ${latestTag}`)
     console.log('\x1b[32m')
-    console.log(`old: ${latestTag}\nnew: ${newTag}`)
+    console.log(`new: ${newTag}`)
     console.log("\x1b[0m")
   } catch (err) {
     console.log('\x1b[31m')
