@@ -45,7 +45,7 @@ const tagHotfix = async () => {
 
     spawnSync('git', ['tag', newTag])
     process.stdout.write(
-      'old: ' + latestTag + '\x1b[32m' + 'new: ' + newTag + '\x1b[0m' + '\n\n'
+      'old: ' + latestTag + '\x1b[32m' + '\n' + 'new: ' + newTag + '\x1b[0m' + '\n\n'
     )
   } catch (err) {
     process.stdout.write(
