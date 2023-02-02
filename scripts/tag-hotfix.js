@@ -42,10 +42,12 @@ const tagHotfix = async () => {
     spawnSync('git', ['tag', newTag])
     console.log('\x1b[32m')
     console.log(`old: ${latestTag}\nnew: ${newTag}`)
+    console.log("\x1b[0m")
   } catch (err) {
     console.log('\x1b[31m')
     console.log('tag-hotfix error:')
     console.error(err.message)
+    console.log("\x1b[0m")
   }
 }
 
