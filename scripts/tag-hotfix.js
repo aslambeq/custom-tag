@@ -8,7 +8,7 @@ const execCommand = async (cmd) => {
   const { stdout, stderr } = await exec(cmd)
 
   if (stderr) throw stderr
-  return stdout
+  return stdout.trim()
 }
 
 const getLastCommit = async () => {
