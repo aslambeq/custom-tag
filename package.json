@@ -1,10 +1,14 @@
 {
   "name": "custom-tag",
-  "version": "1.0.1",
+  "version": "1.0.9",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "push-tags": "git push && git push --tags",
+    "bump": "yarn version --patch && yarn push-tags",
+    "bump:minor": "yarn version --minor && yarn push-tags",
+    "bump:major": "yarn version --major && yarn push-tags",
+    "hotfix": "node scripts/tag-hotfix.js && yarn push-tags"
   },
   "keywords": [],
   "author": "aslambeq",
