@@ -13,11 +13,11 @@ const getLastCommit = async () => {
   return execCommand('git rev-parse HEAD')
 }
 
-const checkIfCommitHasTag = async () => {
+const getLastCommitTag = async () => {
   const lastCommit = await getLastCommit()
   const lastCommitTag = await execCommand(`git tag --contains ${lastCommit}`)
 
-  return Boolean(lastCommitTag)
+  return lastCommitTag
 }
 
 const fetchRemoteTags = async () => {
@@ -31,21 +31,21 @@ const getLatestTagInCurrentBranch = async () => {
 const tagHotfix = async () => {
   try {
     await fetchRemoteTags()
-    const lastCommit = await getLastCommit()
-    console.log('🚀 ~ tagHotfix ~ lastCommit', lastCommit);
-    // const latestTag = await getLatestTagInCurrentBranch()
-    const x = await checkIfCommitHasTag()
-    console.log('🚀 ~ x', x);
-    // if (!latestTag) throw 'тэг не найден'
-    // const [branchVersion, hotfix] = latestTag.split('+')
-    // const newTag = `${branchVersion}+${Number(hotfix || 0) + 1}`
+    const lastCommitTag = await getLastCommitTag()
+    if (Boolean(lastCommitTag))
+      throw new Error(`recent commit already tagged\n${lastCommitTag}`)
+    const latestTag = await getLatestTagInCurrentBranch()
+    if (!latestTag) throw new Error('no tags found in current branch')
+    const [branchVersion, hotfix] = latestTag.split('+')
+    const newTag = `${branchVersion}+${Number(hotfix || 0) + 1}`
 
-    // spawnSync('git', ['tag', newTag])
-    // console.log(`old: ${latestTag}\nnew: ${newTag}`)
+    spawnSync('git', ['tag', newTag])
+    console.log(`old: ${latestTag}\nnew: ${newTag}`)
   } catch (err) {
-    console.error('tag-hotfix error\n', err.message)
+    console.log('\x1b[31m')
+    console.log('tag-hotfix error:')
+    console.error(err.message)
   }
 }
 
 tagHotfix()
-// git tag --contains <commit>
