@@ -1,6 +1,13 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const { spawn } = require('child_process')
+const { spawnSync } = require('child_process')
+
+const fetchRemoteTags = async () => {
+  const { stdout, stderr } = await exec('git fetch --tags --all')
+
+  if (stderr) throw stderr
+  return stdout
+}
 
 const getLatestTagInCurrentBranch = async () => {
   const { stdout, stderr } = await exec('git describe --abbrev=0 --tags')
@@ -10,23 +17,22 @@ const getLatestTagInCurrentBranch = async () => {
 }
 
 const tagHotfix = async () => {
-  const latestTag = await getLatestTagInCurrentBranch()
-  console.log('🚀 ~ tagHotfix ~ latestTag', latestTag);
-  // const cmd = execSync('git', ['describe', '--abbrev=0', '--tags'], { shell: false })
+  try {
+    await fetchRemoteTags()
+    // TODO check if latest commit contains tag
+    const latestTag = await getLatestTagInCurrentBranch()
 
-  // cmd.stdout.on('data', (data) => {
-  //   console.log('🚀 ~ cmd.stdout.on ~ data', data.toString().split('\n'));
-  // })
+    if (!latestTag) throw 'тэг не найден'
+    const [branchVersion, hotfix] = latestTag.split('+')
+    const newTag = `${branchVersion}+${(Number(hotfix || 0) + 1)}`
 
-  // cmd.stderr.on('data', (data) => {
-  //   console.error(`stderr: ${data}`)
-  // })
+    spawnSync('git', ['tag', newTag])
+    console.log(latestTag + '->' + newTag);
+    // console.log(`${latestTag} -> ${newTag}`);
+  } catch (err) {
+    console.error('tag-hotfix error \n', err.message);
+  }
 
-  // cmd.on('close', (code) => {
-  //   console.log(`child process exited with code ${code}`)
-  // })
 }
 
 tagHotfix()
-// git fetch --tags --all
-// git describe --abbrev=0 --tags
