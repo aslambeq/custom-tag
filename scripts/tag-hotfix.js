@@ -1,5 +1,3 @@
-// https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
-
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 const { spawnSync } = require('child_process')
