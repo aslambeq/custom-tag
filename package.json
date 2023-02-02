@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "hotfix": "node scripts/tag-hotfix.js"
+    "hotfix": "node scripts/tag-hotfix.js && git push && git push --tags"
   },
   "keywords": [],
   "author": "aslambeq",

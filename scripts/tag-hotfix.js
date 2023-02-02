@@ -39,14 +39,19 @@ const tagHotfix = async () => {
     const latestTag = await getLatestTagInCurrentBranch()
     if (!latestTag) throw new Error('no tags found in current branch')
     const [branchVersion, hotfix] = latestTag.split('+')
-    const newTag = `${branchVersion}+${Number(hotfix || 0) + 1}`
+    const newHotfix = String(Number(hotfix?.trim() || 0) + 1)
+
+    const newTag = `${branchVersion.trim()}+${newHotfix}`
 
     spawnSync('git', ['tag', newTag])
-    process.stdout.write('old: ' + latestTag + '\x1b[32m' + 'new: ' + newTag + '\x1b[0m' + '\n\n')
+    process.stdout.write(
+      'old: ' + latestTag + '\x1b[32m' + 'new: ' + newTag + '\x1b[0m' + '\n\n'
+    )
   } catch (err) {
     process.stdout.write(
       '\x1b[31m' + 'tag-hotfix error:\n' + err.message + '\x1b[0m' + '\n'
     )
+    process.exit(1)
   }
 }
 
