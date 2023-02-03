@@ -1,3 +1,27 @@
+## [1.1.4](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.3...MAIN_1.1.4) (2023-02-03)
+
+
+### Bug Fixes
+
+* **changelog.md:** rewrite ([6d1a07f](https://github.com/aslambeq/custom-tag/commit/6d1a07f0fc386448d7d1c7f6e18d584c651177f7))
+
+
+### chore
+
+* **temp.js:** force BREAKING CHANGE ([d6a0074](https://github.com/aslambeq/custom-tag/commit/d6a0074acf180bc6940fdc4508e278ca5fedcfd1))
+
+
+### Features
+
+* **app.js:** implement app.js ([69e08ca](https://github.com/aslambeq/custom-tag/commit/69e08cafb3eb62d3672c7ebe883e3f356479a1bb))
+
+
+### BREAKING CHANGES
+
+* **temp.js:** log BREAKING CHANGE string
+
+
+
 ## [1.1.3](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.3...MAIN_1.1.3) (2023-02-03)
 
 
