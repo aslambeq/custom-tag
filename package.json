@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "commit": "cz",
-    "changelog-reset": "conventional-changelog -t MAIN_ -p angular -i CHANGELOG.md -s -r 0",
+    "changelog": "conventional-changelog -t MAIN_ -p angular -i CHANGELOG.md -s -r 0",
     "version": "conventional-changelog -t MAIN_ -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "push-tags": "git push && git push --tags",
     "bump": "yarn version --patch && yarn push-tags",

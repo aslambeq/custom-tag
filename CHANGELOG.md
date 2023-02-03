@@ -1,15 +1,13 @@
+## [1.1.7](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.7...MAIN_1.1.7) (2023-02-03)
+
+
+
 ## [1.1.7](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.6...MAIN_1.1.7) (2023-02-03)
 
 
 ### Bug Fixes
 
 * **changelog.md:** fix ([c3ab7d0](https://github.com/aslambeq/custom-tag/commit/c3ab7d0c561cb8b1e8d9007b5ffed908c0fb5ea2))
-
-
-### Reverts
-
-* Revert "fix changelog" ([cd4f01f](https://github.com/aslambeq/custom-tag/commit/cd4f01fb5abda10bae329070b867f86cceb6353b))
-
 
 
 ### Reverts
@@ -97,3 +95,6 @@
 
 
 # 1.0.0 (2023-02-02)
+
+
+
