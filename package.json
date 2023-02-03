@@ -6,7 +6,6 @@
   "scripts": {
     "commit": "cz",
     "changelog": "conventional-changelog -u false -t MAIN_ -p angular -i CHANGELOG.md -s -r 0",
-    "changelog:old": "conventional-changelog -t MAIN_ -p angular -i CHANGELOG.md -s -r 0",
     "version": "conventional-changelog -t MAIN_ -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "push-tags": "git push && git push --tags",
     "bump": "yarn version --patch && yarn push-tags",
