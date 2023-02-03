@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "push-tags": "git push && git push --tags",
+    "commit": "cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "push-tags": "yarn changelog && git push && git push --tags",
     "bump": "yarn version --patch && yarn push-tags",
     "bump:minor": "yarn version --minor && yarn push-tags",
     "bump:major": "yarn version --major && yarn push-tags",
-    "hotfix": "node scripts/tag-hotfix.js && yarn push-tags",
-    "commit": "cz"
+    "hotfix": "node scripts/tag-hotfix.js && yarn push-tags"
   },
   "keywords": [],
   "author": "aslambeq",
