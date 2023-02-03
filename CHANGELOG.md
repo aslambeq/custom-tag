@@ -1,3 +1,12 @@
+## [1.1.8](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.7...MAIN_1.1.8) (2023-02-03)
+
+
+### Bug Fixes
+
+* **scripts:** fix changelog script ([636a710](https://github.com/aslambeq/custom-tag/commit/636a710cdac9bcfb8aceda2fba193769713a3899))
+
+
+
 ## [1.1.7](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.6...MAIN_1.1.7) (2023-02-03)
 
 
