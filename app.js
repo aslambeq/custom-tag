@@ -1,1 +1,1 @@
-console.log("APP")
+console.log("APP.JS")
