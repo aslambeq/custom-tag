@@ -2,6 +2,10 @@
 
 
 
+## [1.1.5](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.5...MAIN_1.1.5) (2023-02-03)
+
+
+
 ## [1.1.5](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.4...MAIN_1.1.5) (2023-02-03)
 
 
@@ -77,3 +81,6 @@
 
 
 # 1.0.0 (2023-02-02)
+
+
+
