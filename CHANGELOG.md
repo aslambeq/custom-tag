@@ -1,3 +1,7 @@
+## [1.1.9](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.8+1...MAIN_1.1.9) (2023-02-03)
+
+
+
 ## [1.1.8](https://github.com/aslambeq/custom-tag/compare/MAIN_1.1.7...MAIN_1.1.8) (2023-02-03)
 
 
